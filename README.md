@@ -20,7 +20,7 @@ Before we begin, make sure you have the following prerequisites:
 
 ![Alt text](./png/image-2.png)
 
-3. Copy Paste token Go to your Github repository
+3. Copy Paste token Go to your Github repository  
 “Settings" > “Secrets and variables” > “Actions” and create “New repository secret"  
 **note** 
 * follow naming convention for token as DOCKERHUB_TOKEN and paste value from previous step
