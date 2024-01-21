@@ -2,7 +2,7 @@
 
 This project is about creating Docker Image using GitActions.
 
-We will use Python 3.10 and create a Flask web server that serves an `index.html` file. GitHub Actions will be used to automate the container building process, ensuring that the container is built consistently with every code change.
+We will use Python and create a Flask web server that serves an `index.html` file. GitHub Actions will be used to automate the container building process, ensuring that the container is built consistently for every new commits into branch.
 
 1. Prerequisites:
 
@@ -17,9 +17,11 @@ Before we begin, make sure you have the following prerequisites:
 
 2. Create access token that will be used by Github workflow to push our docker image to Docker hub.  
 “Account settings” > “Security” > “New Access Token” and provide Access Token Description.
+
 ![Alt text](./png/image-2.png)
 
-3. Copy Paste token Go to your Github repository “Settings" > “Secrets and variables” > “Actions” and create “New repository secret"  
+3. Copy Paste token Go to your Github repository
+“Settings" > “Secrets and variables” > “Actions” and create “New repository secret"  
 **note** 
 * follow naming convention for token as DOCKERHUB_TOKEN and paste value from previous step
 * Create another repository secret named DOCKERHUB_USERNAME providing your Docker Hub username.
