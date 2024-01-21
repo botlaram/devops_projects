@@ -12,6 +12,7 @@ Before we begin, make sure you have the following prerequisites:
 * Docker Hub account
 * Setting up the Github repository
 * Setting up the repository in Docker Hub
+
 ![Alt text](./png/image-1.png)
 
 2. Create access token that will be used by Github workflow to push our docker image to Docker hub.  
@@ -22,6 +23,7 @@ Before we begin, make sure you have the following prerequisites:
 **note** 
 * follow naming convention for token as DOCKERHUB_TOKEN and paste value from previous step
 * Create another repository secret named DOCKERHUB_USERNAME providing your Docker Hub username.
+
 ![Alt text](./png/image-3.png)
 
 4. Create an demo file in your respository  
@@ -85,7 +87,7 @@ CMD [ "python", "app.py" ]
 
 8. Creating the GitHub Actions Workflow
 In the root directory of your repository, create a directory called .github/workflows.  
-Inside the .github/workflows directory, create a new file called build.yml and commit the below content
+Inside the .github/workflows directory, create a new file called build.yml and commit the below content.
 ```yaml
 name: Build Docker Container
 
@@ -125,4 +127,9 @@ jobs:
 10. Navigate to the Actions tab on your repository’s page in GitHub, pipeline should be running.
 
 11. Refresh your Docker hub, Image should be created.
+
 ![Alt text](./png/image.png)
+
+12. to host Flask server, you can test by pulling the Docker Image
+
+![Alt text](./png/image-4.png)
