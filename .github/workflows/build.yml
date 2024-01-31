@@ -18,7 +18,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        packer build -var "docker_username=${{ secrets.DOCKER_USERNAME }}" -var "docker_password=${{ secrets.DOCKER_PASSWORD }}" your-image.pkr.hcl
+        packer build -var "docker_username=${{ secrets.DOCKER_USERNAME }}" -var "docker_password=${{ secrets.DOCKER_PASSWORD }}" packer.pkr.hcl
 
     - name: Login to Docker Hub
       run: |
