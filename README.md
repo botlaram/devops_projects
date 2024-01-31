@@ -1,5 +1,4 @@
-## Demo project Jenkins-Sonarqube (Code Anaylsis)
-
+# Demo project Jenkins-Sonarqube (Code Anaylsis)
 
 1. As we are hosting Jenkins and Sonarqube on 8080 and 9090 respectively  
 kill host (8080 and 9090)  if it is used in backend.
@@ -16,7 +15,7 @@ taskkill /F /PID 7440
 SUCCESS: The process with PID 7440 has been terminated.
 ```
 
-2. build docker ./png/image following to the docker-compose.yaml file  
+2. build docker ./png/image following to the docker-compose.yaml file
 ```shell 
 docker-compose up -d
 ```
@@ -31,6 +30,7 @@ docker-compose up -d
 ```shell
 docker exec -it jenkins-container cat /var/jenkins_home/secrets/initialAdminPassword
 ```
+
 5. To shutdown all containers
 ```shell
 docker-compose down
@@ -53,9 +53,9 @@ docker-compose restart sonarqube
 8. Create a wehbook in github
    1. In github > repository > setting > wehbook
    2. Add webhook payload url to "http://192.168.56.1:8080/github-webhook/" (jenkins URL)
-   3. Select 
+   3. Select
       * pull requests
-      * push 
+      * push
       * Let me select individual events
    4. then select add Wehbook at bottom.
 
@@ -69,6 +69,7 @@ docker-compose restart sonarqube
    7. Select "Build Now" this will trigger a pipeline
 
 10. Commit any file to the git repo and Jenkins build will trigger automatically
+
 11. In Sonarqube select create a project manually
     1. Enter the details  
     ![Alt text](./png/image.png)
@@ -98,12 +99,13 @@ docker-compose restart sonarqube
     ![Alt text](./png/image-6.png)
     6. In Server authentication token > Select token name and Save
 
-15. In Jenkins Add Sonar-Qube projectkey 
+15. In Jenkins Add Sonar-Qube projectkey
     1. Dashboard > Automated-Pipeline > Configuration
-    2. Select Build Steps 
+    2. Select Build Steps
     3. Select Execute SonarQube Scanner
     4. Add projectKey(from Step 11.5) in Analysis properties
 
 16. In Jenkins select respective Pipeline and Select Build Now
+
 17. In Sonarqube > Project (you can watch scanning status)
 ![Alt text](./png/image-7.png)
