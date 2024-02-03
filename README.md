@@ -52,7 +52,7 @@ docker-compose restart sonarqube
 
 8. Create a wehbook in github
    1. In github > repository > setting > wehbook
-   2. Add webhook payload url to "http://192.168.56.1:8080/github-webhook/" (jenkins URL)
+   2. Add webhook payload url to "http://<ip-address>:8080/github-webhook/" (jenkins URL)
    3. Select
       * pull requests
       * push
@@ -61,9 +61,9 @@ docker-compose restart sonarqube
 
 9. To trigger pipeline in Jenkins
    1. in Jenkins dashboard click on New
-   2. Enter a item name and select Freestyle Project
-   3. Select Source Code Management (GIT) and add Git clone URL
-   4. Specify the respect branch
+   2. Enter any item name and select Freestyle Project
+   3. Select Source Code Management (GIT) and add Git clone URL (if GIT no option, download GIT plugin in Jenkins 
+   4. Specify the respect branch. For eg(*/feat-branch)
    5. Select GitHub hook trigger for GITScm polling
    6. Then click on Save
    7. Select "Build Now" this will trigger a pipeline
