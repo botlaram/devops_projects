@@ -1,0 +1,30 @@
+name: jenkins-github-nox-pytest
+
+run-name: ${{ github.actor }} is jenkins-github-nox-pytest
+
+on:
+  push:
+    branches:
+    - jenkins-github-nox-pytest
+
+jobs:
+  run-python-noxfile:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run Nox session for script
+      run: nox -s run_script
+
+    - name: Run Nox session for test cases
+      run: nox -s tests

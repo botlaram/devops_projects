@@ -1,0 +1,17 @@
+# Ignore the .nox directory used by Nox
+.nox/
+
+# Ignore the .pytest_cache directory used by pytest
+.pytest_cache/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore any logs or temporary files
+*.log
+*.tmp
