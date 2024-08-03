@@ -22,10 +22,10 @@ def tests(session):
     session.env["FORCE_COLOUR"] = "1"
     
     # pass test case dir as args to pytest
-    if session.posargs:
-        args=session.posargs
-    else:
-        args=DEFAULT_TEST_DIRECTORIES
+    # if session.posargs:
+    #     args=session.posargs
+    # else:
+    #     args=DEFAULT_TEST_DIRECTORIES
   
     # Run tests
     session.run('python', '-m', 'pytest')
