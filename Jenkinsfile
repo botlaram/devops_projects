@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the repository
-                git 'https://github.com/botlaram/devops_projects.git'
+                 git branch: 'jenkins-github-nox-pytest', url: 'https://github.com/botlaram/devops_projects.git'
             }
         }
 
