@@ -1,9 +1,7 @@
 pipeline {
     agent any
 
-    environment {
-        // Define any necessary environment variables here
-    }
+    // Removed empty environment block
 
     stages {
         stage('Checkout') {
@@ -15,8 +13,15 @@ pipeline {
 
         stage('Set Up Python') {
             steps {
-                // Use a specific Python version if necessary
-                sh 'pyenv global 3.9'
+                // Ensure pyenv is available and set the Python version
+                sh '''
+                if command -v pyenv > /dev/null; then
+                    pyenv global 3.9
+                else
+                    echo "pyenv is not installed. Please install pyenv or use another method to set Python version."
+                    exit 1
+                fi
+                '''
             }
         }
 
@@ -44,7 +49,8 @@ pipeline {
 
     post {
         always {
-            // Cleanup or archive artifacts if necessary
+            // Actions to take in all cases
+            echo 'Cleaning up...'
         }
         success {
             // Actions to take upon a successful build
@@ -53,6 +59,7 @@ pipeline {
         failure {
             // Actions to take upon a failed build
             echo 'Build failed!'
+            // Add any necessary failure handling steps here
         }
     }
 }
