@@ -1,2 +1,1 @@
-# devops_projects
-this repo contain devops projects 
+uvicorn app:app --reload

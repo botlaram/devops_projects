@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search User</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            color: white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        h3 {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            border: none;
+            padding-left: 40px;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 2px #ffffff50;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 38px;
+            color: #555;
+        }
+
+        .btn-custom {
+            width: 100%;
+            padding: 12px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-search {
+            background: #ffffff;
+            color: #28a745;
+            border: none;
+        }
+
+        .btn-search:hover {
+            background: #28a745;
+            color: white;
+            transform: scale(1.03);
+        }
+
+        .btn-back {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: white;
+            color: #764ba2;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 25px;
+            color: #333;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .not-found {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+            color: #ffdddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="glass-card">
+        <h3><i class="bi bi-search"></i> Search User</h3>
+
+        <form method="post">
+            <div class="mb-4 input-wrapper">
+                <label>Username</label>
+                <i class="bi bi-person-fill input-icon"></i>
+                <input type="text" name="username" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-search btn-custom mb-3">
+                <i class="bi bi-search"></i> Search
+            </button>
+
+            <a href="/" class="btn btn-back btn-custom">
+                <i class="bi bi-arrow-left"></i> Back
+            </a>
+        </form>
+
+        {% if user %}
+        <div class="result-card">
+            <h5><i class="bi bi-person-check-fill"></i> User Details</h5>
+            <hr>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Phone:</strong> {{ user.phone }}</p>
+            <p><strong>City:</strong> {{ user.city }}</p>
+        </div>
+        {% elif user is not none %}
+        <div class="not-found">
+            <i class="bi bi-exclamation-triangle-fill"></i> User not found
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

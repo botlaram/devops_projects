@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app
+  template:
+    metadata:
+      labels:
+        app: flask-app
+    spec:
+      containers:
+        - name: flask-app
+          image: imuser/flaskapp:latest
+          ports:
+            - containerPort: 8000  #where application runs inside container
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongodb-service:27017/
